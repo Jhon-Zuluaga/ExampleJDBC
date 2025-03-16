@@ -12,13 +12,13 @@ public class Key {
     int id;
     String name;
     String room;
-    String count;
+    int count;
     String observation;
 
     public Key() {
     }
 
-    public Key(int id, String name, String room, String count, String observation) {
+    public Key(int id, String name, String room, int count, String observation) {
         this.id = id;
         this.name = name;
         this.room = room;
@@ -50,11 +50,11 @@ public class Key {
         this.room = room;
     }
 
-    public String getCount() {
+    public int getCount() {
         return count;
     }
 
-    public void setCount(String count) {
+    public void setCount(int count) {
         this.count = count;
     }
 
@@ -65,6 +65,8 @@ public class Key {
     public void setObservation(String observation) {
         this.observation = observation;
     }
+
+    
     
     
 }

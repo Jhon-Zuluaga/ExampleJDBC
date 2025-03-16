@@ -30,18 +30,18 @@ public class TestEmployeeType {
         //dbEmployeeType.delete(5);
         
         //Consultar todos
-        //List<EmployeeType> ListEmployeeType = dbEmployeeType.findAll();
-          //for (EmployeeType e : ListEmployeeType) {
-              //System.out.println("id: " + e.getId() + " descript: "+ e.getDescript());
+        List<EmployeeType> ListEmployeeType = dbEmployeeType.findAll();
+          for (EmployeeType e : ListEmployeeType) {
+              System.out.println("id: " + e.getId() + " descript: "+ e.getDescript());
               
           // Consultar por id
-          EmployeeType employeeType2 = dbEmployeeType.findById(3);
+         EmployeeType employeeType2 = dbEmployeeType.findById(3);
           if(employeeType2 != null)
           {
               System.out.println("id: " + employeeType2.getId() + " descript: "+ employeeType2.getDescript());
           }
-          else{
-              System.out.println("No existe el employeetipe con ese id!");
+          //else{
+              //System.out.println("No existe el employeetipe con ese id!");
           }
          
           
