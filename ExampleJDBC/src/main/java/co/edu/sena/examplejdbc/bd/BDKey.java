@@ -47,13 +47,13 @@ public class BDKey extends DBConnection {
     {
         try {
             connect();
-            String sql = "update `key` set name = ? WHERE id = ? AND room = ? AND count = ? AND observation = ?";
+            String sql = "UPDATE `key` SET name = ?, room = ?, count = ?, observation = ? WHERE id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, key.getName());
-            preparedStatement.setInt(2, key.getId());
-            preparedStatement.setString(3, key.getRoom());
-            preparedStatement.setInt(4, key.getCount());
-            preparedStatement.setString(5 , key.getObservation());
+            preparedStatement.setString(2, key.getRoom());
+            preparedStatement.setInt(3, key.getCount());
+            preparedStatement.setString(4 , key.getObservation());
+            preparedStatement.setInt(5, key.getId());
             
             preparedStatement.executeUpdate();
             preparedStatement.close();

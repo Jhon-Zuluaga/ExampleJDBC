@@ -23,7 +23,10 @@ public class TestKey {
         
         //actualizar
         key.setId(4);
+        key.setName("asdad");
+        key.setRoom("si");
         key.setCount(3);
+        key.setObservation("si");
         dbkey.update(key);
         
         //dbkey.delete(5);
