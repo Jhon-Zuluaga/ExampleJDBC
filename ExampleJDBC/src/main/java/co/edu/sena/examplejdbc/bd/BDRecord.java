@@ -31,14 +31,14 @@ public class BDRecord extends DBConnection {
             preparedStatement.setString(1, record.getDate_record());
             preparedStatement.setString(2, record.getStart_time());
             preparedStatement.setString(3, record.getEnd_time());
-            preparedStatement.setLong(4,  record.getEmployeeId().getDocument());
-            preparedStatement.setInt(5,  record.getKey().getId());
+            preparedStatement.setLong(4, record.getEmployeeId().getDocument());
+            preparedStatement.setInt(5, record.getKey().getId());
             preparedStatement.setString(6, record.getStatus());
             preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (SQLException e) {
             MessageUtils.ShowErrorMessage("Error al insertar llave  " + e.getMessage());
-        }finally{
+        } finally {
             disconnect();
         }
 
@@ -48,19 +48,19 @@ public class BDRecord extends DBConnection {
         try {
             int pos = 0;
             connect();
-            String sql = "INSERT INTO record VALUES (?,?,?,?,?,?,?)";
+            String sql = "UPDATE record SET date_record= ?, start_time= ?, end_time= ?, employee_id= ?, key_id= ?, status= ? WHERE id=?";
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setInt(++pos, record.getId());
             stmt.setString(++pos, record.getDate_record());
             stmt.setString(++pos, record.getStart_time());
             stmt.setString(++pos, record.getEnd_time());
-            stmt.setLong(++pos, record.getEmployeeId().getDocument()); // FK: Llave foránea
-            stmt.setInt(++pos, record.getKey().getId()); // FK: Llave foránea
+            stmt.setLong(++pos, record.getEmployeeId().getDocument());
+            stmt.setInt(++pos, record.getKey().getId());
             stmt.setString(++pos, record.getStatus());
+            stmt.setInt(++pos, record.getId());
             stmt.executeUpdate();
             stmt.close();
         } catch (SQLException e) {
-            MessageUtils.ShowErrorMessage("ERROR al insertar registro..." + e.getMessage());
+            MessageUtils.ShowErrorMessage("ERROR al actualizar usuario..." + e.getMessage());
         } finally {
             disconnect();
         }
@@ -85,35 +85,32 @@ public class BDRecord extends DBConnection {
 
     public List<Record> findAll() {
         List<Record> results = new ArrayList<>();
-        BDEmployee dbet = new BDEmployee();
-        BDKey bdkey = new BDKey();
+        BDEmployee dBEmployee = new BDEmployee();
+        BDKey dBKey = new BDKey();
         try {
             connect();
-            String sql = "Select * from `record`";
-            statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
-
+            String sql = "SELECT * FROM record";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()) {
                 Record record = new Record();
                 record.setId(resultSet.getInt("id"));
                 record.setDate_record(resultSet.getString("date_record"));
                 record.setStart_time(resultSet.getString("start_time"));
                 record.setEnd_time(resultSet.getString("end_time"));
-                record.setStatus(resultSet.getString("status"));
                 // FK
-                Employee employee = dbet.findById(resultSet.getInt("type_id"));
+                Employee employee = dBEmployee.findById(resultSet.getInt("employee_id"));
                 record.setEmployeeId(employee);
-                results.add(record);
-                
-                //FK
-                Key key = bdkey.findById(resultSet.getInt("id"));
+                // FK
+                Key key = dBKey.findById(resultSet.getInt("key_id"));
                 record.setKey(key);
                 results.add(record);
             }
+            stmt.close();
             resultSet.close();
 
-        } catch (Exception e) {
-            MessageUtils.ShowErrorMessage("Error al encontrar grabación" + e.getMessage());
+        } catch (SQLException e) {
+            MessageUtils.ShowErrorMessage("ERROR al consultar todos los registros: " + e.getMessage()); // 🔹 Mejora en el mensaje
         } finally {
             disconnect();
         }
@@ -122,39 +119,38 @@ public class BDRecord extends DBConnection {
 
     public Record findById(int id) {
         Record record = null;
-        BDEmployee dbet = new BDEmployee();
-        BDKey bdkey = new BDKey();
-
+        BDEmployee dBEmployee = new BDEmployee();
+        BDKey dBKey = new BDKey();
         try {
             connect();
-            String sql = "SELECT * FROM `record` WHERE id = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(id, id);
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            // . next para recorrer todos los resultados
+            String sql = "SELECT * FROM record WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet resultSet = stmt.executeQuery();
             if (resultSet.next()) {
                 record = new Record();
                 record.setId(resultSet.getInt("id"));
                 record.setDate_record(resultSet.getString("date_record"));
                 record.setStart_time(resultSet.getString("start_time"));
                 record.setEnd_time(resultSet.getString("end_time"));
-                record.setStatus(resultSet.getString("status"));
-
                 // FK
-                Employee employee = dbet.findById(resultSet.getInt("type_id"));
+                BDEmployee dBEmployee1 = new BDEmployee();
+                Employee employee = dBEmployee.findById(resultSet.getLong("employee_id"));
                 record.setEmployeeId(employee);
-
-                Key key = bdkey.findById(resultSet.getInt("id"));
+                // FK
+                Key key = dBKey.findById(resultSet.getInt("key_id"));
                 record.setKey(key);
-
+                record.setStatus(resultSet.getString("status"));
             }
+            stmt.close();
             resultSet.close();
-        } catch (Exception e) {
-            MessageUtils.ShowErrorMessage("Error al consultar tipo de grabación" + e.getMessage());
+
+        } catch (SQLException e) {
+            MessageUtils.ShowErrorMessage("ERROR al consultar todos los registros: " + e.getMessage());
         } finally {
             disconnect();
         }
         return record;
     }
+
 }
