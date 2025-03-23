@@ -23,11 +23,16 @@ public class TestRecord {
         BDEmployee dBEmployee = new BDEmployee();
         BDKey dBKey = new BDKey();
         Employee employee = dBEmployee.findById(1115);
+<<<<<<< Updated upstream
         Key key = dBKey.findById(1);
+=======
+        Key key = dBKey.findById(7);
+>>>>>>> Stashed changes
 
         // INSERTAR
         Record record = new Record(9, "2025-01-26", "10:00:00", null, employee, key, "PENDIENTE");
         //dBRecord.insert(record);
+<<<<<<< Updated upstream
 
         //ACTUALIZAR
         record = dBRecord.findById(1);
@@ -57,6 +62,20 @@ public class TestRecord {
                 + " / Id Empleado: " + record2.getEmployeeId().getDocument()
                 + " / Id Llave: " + record2.getKey().getId()
                 + " / Estado: " + record2.getStatus());
+=======
+        
+        //delete
+        dBRecord.delete(1);
+
+//        List<Record> records = dBRecord.findAll();
+//        for (Record r : records){
+//            System.out.println("id: " + r.getId()+ "date_record: " + r.getDate_record() + "start_time: " +
+//                    r.getStart_time() + "end_time: " + r.getEnd_time() + "status: " + r.getStatus() + "type: " +
+//                    r.getEmployeeId().getDocument() + "id: " + r.getKey().getId());
+            
+        //}
+        
+>>>>>>> Stashed changes
 
     }
 

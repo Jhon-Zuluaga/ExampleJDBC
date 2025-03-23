@@ -29,16 +29,16 @@ public class TestEmployee {
         //dBE.insert(employee);
 
         //modificar
-//        employee.setFullname("Elba reto");
-//        employeeType = dBEmployeeType.findById(2);
-//        employee.setEmployeeType(employeeType);
-//        dBE.update(employee);
+       employee.setFullname("Elba reto");
+      employeeType = dBEmployeeType.findById(2);
+      employee.setEmployeeType(employeeType);
+      dBE.update(employee);
 
         //eliminar
         dBE.delete(1000000047);
         
         //consultar todos
-//        List<Employee> employees = dBE.findAll();
+//       List<Employee> employees = dBE.findAll();
 //        for (Employee employee1 : employees) {
 //            System.out.println("document: " + employee1.getDocument() + "fullname: " + employee1.getFullname() + 
 //                                   "address: " + employee1.getAddress() + "phone: " + employee1.getPhone() + "type: " + employee1.getEmployeeType().getDescript());

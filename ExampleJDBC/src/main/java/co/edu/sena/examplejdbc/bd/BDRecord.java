@@ -46,8 +46,9 @@ public class BDRecord extends DBConnection {
 
     public void update(Record record) {
         try {
-            int pos = 0;
+            
             connect();
+<<<<<<< Updated upstream
             String sql = "UPDATE record SET date_record= ?, start_time= ?, end_time= ?, employee_id= ?, key_id= ?, status= ? WHERE id=?";
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(++pos, record.getDate_record());
@@ -61,6 +62,21 @@ public class BDRecord extends DBConnection {
             stmt.close();
         } catch (SQLException e) {
             MessageUtils.ShowErrorMessage("ERROR al actualizar usuario..." + e.getMessage());
+=======
+            String sql = "UPDATE `record` SET date_record=?, start_time=?, end_time=?, employee_id=?, key_id=?, status=? WHERE id=?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, record.getId());
+            stmt.setString(2, record.getDate_record());
+            stmt.setString(3, record.getStart_time());
+            stmt.setString(4, record.getEnd_time());
+            stmt.setLong(5, record.getEmployeeId().getDocument()); // FK: Llave foránea
+            stmt.setInt(6, record.getKey().getId()); // FK: Llave foránea
+            stmt.setString(7, record.getStatus());
+            stmt.executeUpdate();
+            stmt.close();
+        } catch (SQLException e) {
+            MessageUtils.ShowErrorMessage("ERROR al actualizar registro..." + e.getMessage());
+>>>>>>> Stashed changes
         } finally {
             disconnect();
         }
@@ -70,9 +86,8 @@ public class BDRecord extends DBConnection {
         try {
             connect();
             String sql = "DELETE FROM record WHERE id= ?";
-            int pos = 0;
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(pos, id);
+            preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (Exception e) {
@@ -134,8 +149,12 @@ public class BDRecord extends DBConnection {
                 record.setStart_time(resultSet.getString("start_time"));
                 record.setEnd_time(resultSet.getString("end_time"));
                 // FK
+<<<<<<< Updated upstream
                 BDEmployee dBEmployee1 = new BDEmployee();
                 Employee employee = dBEmployee.findById(resultSet.getLong("employee_id"));
+=======
+                Employee employee = dbet.findById(resultSet.getInt("id"));
+>>>>>>> Stashed changes
                 record.setEmployeeId(employee);
                 // FK
                 Key key = dBKey.findById(resultSet.getInt("key_id"));
