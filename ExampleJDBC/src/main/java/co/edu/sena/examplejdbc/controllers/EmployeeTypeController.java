@@ -37,9 +37,9 @@ public class EmployeeTypeController implements IEmployeeTypeController {
         if (employeeType == null) {
             throw new Exception("El tipo de empleado es nulo");
         }
-        if (employeeType.getId() == 0) {
-            throw new Exception("El id es obligatorio");
-        }
+//        if (employeeType.getId() == 0) {
+//            throw new Exception("El id es obligatorio");
+//        }
         if ("".equals(employeeType.getDescript())) {
             throw new Exception("La descripción es obligatorio");
         }
