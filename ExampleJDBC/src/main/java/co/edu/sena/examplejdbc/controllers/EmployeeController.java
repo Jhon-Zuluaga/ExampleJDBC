@@ -4,7 +4,7 @@
  */
 package co.edu.sena.examplejdbc.controllers;
 
-import co.edu.sena.examplejdbc.bd.BDEmployee;
+import co.edu.sena.examplejdbc.bd.DBEmployee;
 import co.edu.sena.examplejdbc.model.Employee;
 import java.util.List;
 
@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class EmployeeController implements IEmployeeController {
     
-    private BDEmployee dbe = new BDEmployee();
+    private DBEmployee dbe = new DBEmployee();
     
     @Override
     public void insert(Employee employee) throws Exception {

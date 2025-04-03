@@ -84,7 +84,7 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
 
         jButtonInsert.setBackground(new java.awt.Color(153, 255, 102));
         jButtonInsert.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonInsert.setText("Insertar");
+        jButtonInsert.setText("Insert");
         jButtonInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonInsertActionPerformed(evt);
@@ -102,7 +102,7 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
 
         jButtonDelete.setBackground(new java.awt.Color(255, 102, 102));
         jButtonDelete.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonDelete.setText("Eliminar");
+        jButtonDelete.setText("Delete");
         jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeleteActionPerformed(evt);
@@ -111,7 +111,7 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
 
         jButtonUpdate.setBackground(new java.awt.Color(102, 255, 255));
         jButtonUpdate.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonUpdate.setText("Modificar");
+        jButtonUpdate.setText("Update");
         jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUpdateActionPerformed(evt);
@@ -120,7 +120,7 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
 
         jButtonClear.setBackground(new java.awt.Color(153, 153, 153));
         jButtonClear.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonClear.setText("Limpiar");
+        jButtonClear.setText("Clear");
         jButtonClear.setEnabled(false);
         jButtonClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

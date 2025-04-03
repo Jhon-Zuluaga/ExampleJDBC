@@ -21,7 +21,7 @@ import java.util.List;
  *
  * @author Jhon Zuluaga Objetivo: Representa la tabla record
  */
-public class BDRecord extends DBConnection {
+public class DBRecord extends DBConnection {
 
     public void insert(Record record) {
         try {
@@ -72,7 +72,7 @@ public class BDRecord extends DBConnection {
             String sql = "DELETE FROM record WHERE id= ?";
             int pos = 0;
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(pos, id);
+            preparedStatement.setInt(++pos, id);
             preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (Exception e) {
@@ -85,8 +85,8 @@ public class BDRecord extends DBConnection {
 
     public List<Record> findAll() {
         List<Record> results = new ArrayList<>();
-        BDEmployee dBEmployee = new BDEmployee();
-        BDKey dBKey = new BDKey();
+        DBEmployee dBEmployee = new DBEmployee();
+        DBKey dBKey = new DBKey();
         try {
             connect();
             String sql = "SELECT * FROM record";
@@ -119,8 +119,8 @@ public class BDRecord extends DBConnection {
 
     public Record findById(int id) {
         Record record = null;
-        BDEmployee dBEmployee = new BDEmployee();
-        BDKey dBKey = new BDKey();
+        DBEmployee dBEmployee = new DBEmployee();
+        DBKey dBKey = new DBKey();
         try {
             connect();
             String sql = "SELECT * FROM record WHERE id = ?";
@@ -134,7 +134,7 @@ public class BDRecord extends DBConnection {
                 record.setStart_time(resultSet.getString("start_time"));
                 record.setEnd_time(resultSet.getString("end_time"));
                 // FK
-                BDEmployee dBEmployee1 = new BDEmployee();
+                DBEmployee dBEmployee1 = new DBEmployee();
                 Employee employee = dBEmployee.findById(resultSet.getLong("employee_id"));
                 record.setEmployeeId(employee);
                 // FK

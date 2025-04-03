@@ -121,7 +121,7 @@ public class JFrameEmployee extends javax.swing.JFrame {
 
         jButtonInsert.setBackground(new java.awt.Color(153, 255, 51));
         jButtonInsert.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonInsert.setText("Crear");
+        jButtonInsert.setText("Insert");
         jButtonInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonInsertActionPerformed(evt);
@@ -130,7 +130,7 @@ public class JFrameEmployee extends javax.swing.JFrame {
 
         jButtonUpdate.setBackground(new java.awt.Color(0, 255, 204));
         jButtonUpdate.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonUpdate.setText("Modificar");
+        jButtonUpdate.setText("Update");
         jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUpdateActionPerformed(evt);
@@ -139,7 +139,7 @@ public class JFrameEmployee extends javax.swing.JFrame {
 
         jButtonDelete.setBackground(new java.awt.Color(255, 102, 102));
         jButtonDelete.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonDelete.setText("Eliminar");
+        jButtonDelete.setText("Delete");
         jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeleteActionPerformed(evt);
@@ -148,7 +148,7 @@ public class JFrameEmployee extends javax.swing.JFrame {
 
         jButtonClear.setBackground(new java.awt.Color(153, 153, 153));
         jButtonClear.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonClear.setText("Limpiar");
+        jButtonClear.setText("Clear");
         jButtonClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonClearActionPerformed(evt);
@@ -214,7 +214,7 @@ public class JFrameEmployee extends javax.swing.JFrame {
                                 .addComponent(jTextFieldPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextFieldFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jButtonClear))))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

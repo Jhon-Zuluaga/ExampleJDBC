@@ -4,7 +4,7 @@
  */
 package co.edu.sena.examplejdbc.test;
 
-import co.edu.sena.examplejdbc.bd.BDEmployee;
+import co.edu.sena.examplejdbc.bd.DBEmployee;
 import co.edu.sena.examplejdbc.bd.DBEmployeeType;
 import co.edu.sena.examplejdbc.model.Employee;
 import co.edu.sena.examplejdbc.model.EmployeeType;
@@ -20,7 +20,7 @@ import java.util.List;
 public class TestEmployee {
 
     public static void main(String[] args) {
-        BDEmployee dBE = new BDEmployee();
+        DBEmployee dBE = new DBEmployee();
         DBEmployeeType dBEmployeeType = new DBEmployeeType();
         // insertar
         EmployeeType employeeType = dBEmployeeType.findById(1);

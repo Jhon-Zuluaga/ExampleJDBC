@@ -18,7 +18,7 @@ import java.util.List;
  * Objetivo: permite consultas y transacciones en la tabla key
  * 
  */
-public class BDKey extends DBConnection {
+public class DBKey extends DBConnection {
     
     public void insert(Key key)
     {

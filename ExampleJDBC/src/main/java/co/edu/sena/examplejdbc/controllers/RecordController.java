@@ -4,7 +4,7 @@
  */
 package co.edu.sena.examplejdbc.controllers;
 
-import co.edu.sena.examplejdbc.bd.BDRecord;
+import co.edu.sena.examplejdbc.bd.DBRecord;
 import co.edu.sena.examplejdbc.model.Record;
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class RecordController implements IRecordController {
 
-    private BDRecord bdr = new BDRecord();
+    private DBRecord bdr = new DBRecord();
 
     @Override
     public void insert(Record record) throws Exception {

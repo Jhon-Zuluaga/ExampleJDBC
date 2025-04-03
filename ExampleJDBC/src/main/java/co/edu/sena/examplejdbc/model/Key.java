@@ -66,6 +66,11 @@ public class Key {
         this.observation = observation;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
+
     
     
     

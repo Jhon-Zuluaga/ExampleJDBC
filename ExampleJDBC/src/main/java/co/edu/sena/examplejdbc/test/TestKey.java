@@ -4,7 +4,7 @@
  */
 package co.edu.sena.examplejdbc.test;
 
-import co.edu.sena.examplejdbc.bd.BDKey;
+import co.edu.sena.examplejdbc.bd.DBKey;
 import co.edu.sena.examplejdbc.model.Key;
 import java.util.List;
 
@@ -16,7 +16,7 @@ import java.util.List;
 public class TestKey {
 
     public static void main(String[] args) {
-        BDKey dbkey = new BDKey();
+        DBKey dbkey = new DBKey();
 
         //Insertar 
         Key key = new Key(5, "BICENTENARIO", "Sala12", 4, "Llavero solo");

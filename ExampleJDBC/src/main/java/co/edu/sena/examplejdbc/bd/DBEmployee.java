@@ -21,7 +21,7 @@ import java.util.List;
  * employee
  *
  */
-public class BDEmployee extends DBConnection {
+public class DBEmployee extends DBConnection {
 
     public void insert(Employee employee) {
         try {

@@ -4,7 +4,7 @@
  */
 package co.edu.sena.examplejdbc.controllers;
 
-import co.edu.sena.examplejdbc.bd.BDKey;
+import co.edu.sena.examplejdbc.bd.DBKey;
 import co.edu.sena.examplejdbc.model.Key;
 import java.util.List;
 
@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class KeyController implements IKeyController {
 
-    private BDKey dbk = new BDKey();
+    private DBKey dbk = new DBKey();
 
     @Override
 
