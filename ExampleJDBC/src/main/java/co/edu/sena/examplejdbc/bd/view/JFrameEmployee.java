@@ -92,6 +92,7 @@ public class JFrameEmployee extends javax.swing.JFrame {
         jButtonClear = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableEmployee = new javax.swing.JTable();
+        jLabelIcon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -170,6 +171,14 @@ public class JFrameEmployee extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTableEmployee);
 
+        jLabelIcon.setIcon(new javax.swing.ImageIcon("D:\\Repos\\ExampleJDBC\\ExampleJDBC\\src\\main\\resources\\co\\edu\\sena\\examplejdbc\\view\\logo.png")); // NOI18N
+        jLabelIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelIconMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -181,6 +190,7 @@ public class JFrameEmployee extends javax.swing.JFrame {
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelType)
                                     .addComponent(jButtonInsert))
@@ -188,26 +198,29 @@ public class JFrameEmployee extends javax.swing.JFrame {
                                 .addComponent(jButtonUpdate)
                                 .addGap(105, 105, 105)
                                 .addComponent(jButtonDelete))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelDocument)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelAddress)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jTextFieldAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jComboBoxType, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldDocument, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelPhone)
+                                    .addComponent(jLabelFullName)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabelIcon)
+                                .addGap(182, 182, 182)
                                 .addComponent(jLabel1)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabelDocument)
-                                            .addGap(0, 0, Short.MAX_VALUE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabelAddress)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jTextFieldAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(0, 0, Short.MAX_VALUE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jComboBoxType, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextFieldDocument, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabelPhone)
-                                        .addComponent(jLabelFullName)))))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,8 +232,10 @@ public class JFrameEmployee extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabelIcon))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDocument)
@@ -335,6 +350,12 @@ public class JFrameEmployee extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
+    private void jLabelIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconMouseClicked
+       JFrameHome view =new JFrameHome();
+       view.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jLabelIconMouseClicked
+
     public void clean() {
         jTextFieldAddress.setText("");
         jTextFieldDocument.setText("");
@@ -392,6 +413,7 @@ public class JFrameEmployee extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelAddress;
     private javax.swing.JLabel jLabelDocument;
     private javax.swing.JLabel jLabelFullName;
+    private javax.swing.JLabel jLabelIcon;
     private javax.swing.JLabel jLabelPhone;
     private javax.swing.JLabel jLabelType;
     private javax.swing.JScrollPane jScrollPane2;

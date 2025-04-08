@@ -69,22 +69,23 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
         jButtonClear = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableEmployeeType = new javax.swing.JTable();
+        jLabelIcon = new javax.swing.JLabel();
 
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Crecar tipo de empleado");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Descripcion:");
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
 
+        jButtonInsert.setText("Insert");
         jButtonInsert.setBackground(new java.awt.Color(153, 255, 102));
         jButtonInsert.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonInsert.setText("Insert");
         jButtonInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonInsertActionPerformed(evt);
@@ -97,31 +98,31 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
             }
         });
 
-        jLabelId.setForeground(new java.awt.Color(0, 0, 0));
         jLabelId.setText("Id:");
+        jLabelId.setForeground(new java.awt.Color(0, 0, 0));
 
+        jButtonDelete.setText("Delete");
         jButtonDelete.setBackground(new java.awt.Color(255, 102, 102));
         jButtonDelete.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonDelete.setText("Delete");
         jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeleteActionPerformed(evt);
             }
         });
 
+        jButtonUpdate.setText("Update");
         jButtonUpdate.setBackground(new java.awt.Color(102, 255, 255));
         jButtonUpdate.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonUpdate.setText("Update");
         jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUpdateActionPerformed(evt);
             }
         });
 
-        jButtonClear.setBackground(new java.awt.Color(153, 153, 153));
-        jButtonClear.setForeground(new java.awt.Color(0, 0, 0));
         jButtonClear.setText("Clear");
+        jButtonClear.setBackground(new java.awt.Color(153, 153, 153));
         jButtonClear.setEnabled(false);
+        jButtonClear.setForeground(new java.awt.Color(0, 0, 0));
         jButtonClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonClearActionPerformed(evt);
@@ -142,6 +143,14 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTableEmployeeType);
+
+        jLabelIcon.setIcon(new javax.swing.ImageIcon("D:\\Repos\\ExampleJDBC\\ExampleJDBC\\src\\main\\resources\\co\\edu\\sena\\examplejdbc\\view\\logo.png")); // NOI18N
+        jLabelIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelIconMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -175,16 +184,20 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(44, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(39, 39, 39)
+                .addComponent(jLabelIcon)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
-                .addGap(42, 42, 42)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabelIcon))
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelId)
                     .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,7 +211,7 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
                     .addComponent(jButtonDelete))
                 .addGap(39, 39, 39)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
@@ -269,6 +282,12 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
     private void jTextFieldDescriptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescriptActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDescriptActionPerformed
+
+    private void jLabelIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconMouseClicked
+        JFrameHome view =new JFrameHome();
+       view.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jLabelIconMouseClicked
     public void clear() {
         jTextFieldId.setText("");
         jTextFieldDescript.setText("");
@@ -320,6 +339,7 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
     private javax.swing.JButton jButtonUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelIcon;
     private javax.swing.JLabel jLabelId;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
